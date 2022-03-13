@@ -1,4 +1,61 @@
----
-layout: home
-author_profile: true
----
+<meta charset="utf-8">
+
+<body>
+                         **BrainCleanser's English Study Log**<p>
+						 
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+<div id="player">
+<iframe width="480" height="300" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+	player = new YT.Player('player', {
+	  height: '300',
+	  width: '480',
+	  videoId: '9Py7t-5X6Vo',
+	  events: {
+		'onReady': onPlayerReady,
+		'onStateChange': onPlayerStateChange
+	  }
+	});
+  }
+  
+  function loopStart(event) {
+    player.seekTo(1766);   // Start at ~ seconds
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+	loopStart(event);
+	player.pauseVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  function onPlayerStateChange(event) {
+	if (event.data == YT.PlayerState.PLAYING) {
+	  setTimeout(stopVideo, 6500);
+	}
+  }
+  
+  function stopVideo() {
+	loopStart(event);	
+  }
+</script><br>
+A: The EuroZone, we expect Greece to leave the EuroZone within a year.<br>
+B: Is that what you think?<br>
+A: That's what I think. Yes.<br>
+B: You believe that will happen?<br>
+</body>
+
